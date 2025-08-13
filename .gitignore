@@ -1,0 +1,84 @@
+#############################
+# Core Python ignores
+#############################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+
+# VS Code / IDE
+.vscode/
+*.code-workspace
+
+# OS noise
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+#############################
+# LaTeX build artifacts
+#############################
+*.aux
+*.bbl
+*.blg
+*.toc
+*.out
+*.log
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+texput.log
+
+#############################
+# Simulation & animation outputs
+#############################
+# Raw / bulk numeric outputs (reproducible by rerun)
+simulations/results/*.json
+simulations/results/*.png
+simulations/results/*.mp4
+
+# Keep curated summary & documentation
+!RESULTS_SUMMARY.md
+
+# Manim generated media cache
+media/videos/**/partial_movie_files/
+media/images/
+media/Tex/
+media/.last_rendered_scene
+media/videos/**/*.mp4
+
+# Allow selected demonstration video if desired (uncomment to track one)
+# !media/videos/manim_simulations/480p15/PhysicsHeatFieldScene.mp4
+
+#############################
+# Logs / temp
+#############################
+*.tmp
+*.temp
+*.log
+*.cache
+
+#############################
+# Optional: large binaries (uncomment & use Git LFS if needed)
+# *.mp4
+# *.gif
+# *.zip
+
+#############################
+# Security / credentials placeholders
+#############################
+*.env
+*.env.*

@@ -1,0 +1,130 @@
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Computational Framework}
+
+Our research methodology combines GPU-accelerated simulations with experimental validation to verify the theoretical predictions of the multi-functional flow lattice architecture.
+
+\subsubsection{Heat Transfer Simulations}
+
+We developed a custom GPU-optional (CPU fallback) explicit finite-difference solver (PyTorch convolution Laplacian) for conjugate heat diffusion in micro-combustion chambers (cf. micro-scale combustion studies \cite{fernandez2002micropower,maruta2011micro,ronney2003analysis,waitz1998combustors}). The governing equation is:
+\begin{equation}
+    \frac{\partial T}{\partial t} = \alpha \nabla^2 T
+\end{equation}
+with ambient convective relaxation applied on the outer boundary via a lumped Biot approximation. Unless stated otherwise the updated parameter set is:
+\begin{itemize}
+    \item Grid resolution: 128--256$^2$ (refinement tests to 256$^2$) over an 80 mm square domain (uniform $\Delta x$)
+    \item Explicit stability-limited time step: $\Delta t = \min(0.05\,\mathrm{s}, 0.24\,\Delta x^2/\alpha)$
+    \item Thermal diffusivity: $\alpha = 1.4\times10^{-7}\,\mathrm{m^2/s}$ (representative aqueous / hydrated medium)
+    \item Convection coefficient: $h=150\,\mathrm{W/m^2K}$ (unless varied)
+    \item Chamber diameters swept: 2--12 mm
+\end{itemize}
+
+\paragraph{Coupling Efficiency Definitions.} We distinguish: (i) \emph{Global input coupling efficiency} $\eta_{\text{in}} = E_{\text{stored,total}}/E_{\text{input}}$ at the final simulated time (including convective losses), and (ii) \emph{Local coupling efficiency} restricted to an annular capture region of radius $1.5R$ around each chamber (captures near-field biologically relevant thermal volume). Reported efficiencies are taken after 1.2--1.5 ks unless an earlier temperature safety cap is reached. Grid-refinement and replicate jitter (2--5\% Gaussian on $h$ and $\alpha$) quantify numerical and parametric uncertainty.
+
+\subsubsection{Pressure Drop Analysis}
+
+For laminar flow through cylindrical channels, we apply the Hagen-Poiseuille equation:
+
+\begin{equation}
+    Q = \frac{\pi d^4}{128 \mu L}\Delta P
+\end{equation}
+
+where $Q$ is volumetric flow rate, $d$ is channel diameter, $\mu$ is dynamic viscosity, $L$ is channel length, and $\Delta P$ is pressure drop.
+
+\subsection{Complete Organism Design}
+
+\subsubsection{Beetle-Form Morphology}
+The organism adopts a coleopteran (beetle) form factor optimized for robust locomotion and efficient component packaging:
+
+\begin{itemize}
+    \item \textbf{Body Dimensions:} 40-60 cm length $\times$ 25-35 cm width $\times$ 20-30 cm height
+    \item \textbf{Total Mass:} 8-15 kg target weight
+    \item \textbf{Solar Carapace:} $\sim$1500 cm$^2$ curved surface area for photovoltaic integration
+    \item \textbf{Locomotion:} Six articulated legs with carbon fiber spring structure and nitinol muscle wire actuation
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{verbatim}
+    TOP VIEW - Integrated System Architecture
+    ┌─────────────────────────────────────────┐
+    │  Solar Carapace (1500 cm²)              │
+    │  ┌───────────────────────────────────┐  │
+    │  │ 20% efficient PV cells            │  │
+    │  │ Micro-lens concentrators          │  │
+    │  └───────────────────────────────────┘  │
+    │                                          │
+    │  Multi-Functional Flow Lattice          │
+    │  ┌───────────────────────────────────┐  │
+    │  │ >1000 micro-chambers (2-4mm dia)  │  │
+    │  │ Hexagonal honeycomb structure     │  │
+    │  │ 70% porosity optimal design       │  │
+    │  └───────────────────────────────────┘  │
+    │                                          │
+    │  Integrated Systems:                     │
+    │  • Snapdragon processor (5-15W)         │
+    │  • Bio-reactors (2-5L total volume)     │
+    │  • Tesla/vortex valve network           │
+    │  • Acoustic resonator array             │
+    └─────────────────────────────────────────┘
+    
+    SIDE VIEW - Beetle Profile
+         ╱‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾╲
+        ╱   Solar Carapace    ╲
+       │  Flow Lattice Core   │
+       │  ████████████████    │  ← Bio-reactors
+       ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲     ← 6 legs
+    \end{verbatim}
+    \caption{Complete beetle-form organism architecture showing integrated subsystems}
+    \label{fig:beetle_architecture}
+\end{figure}
+
+\subsubsection{Internal Component Layout}
+The organism's internal volume efficiently packages all functional subsystems:
+
+\begin{itemize}
+    \item \textbf{Consciousness Core:} Centrally located Snapdragon processor with thermal management
+    \item \textbf{Bio-Reactor Distribution:} 2-5L total fermentation volume distributed throughout chassis
+    \item \textbf{Flow Lattice Integration:} Monolithic structure serving as skeleton, thermal system, and fluid transport
+    \item \textbf{Sensory Array:} Dual cameras, IR sensors, chemical detectors, pressure transducers
+\end{itemize}
+
+\subsection{Experimental Setup}
+
+\subsubsection{Hardware Platform}
+\begin{itemize}
+    \item \textbf{Computing:} NVIDIA Quadro RTX 5000 (16GB VRAM)
+    \item \textbf{3D Printing:} FDM printer with PLA/PETG capability
+    \item \textbf{Measurement:} IR thermometer, digital multimeter, pressure gauges
+    \item \textbf{Actuation:} Nitinol wire springs, DC power supplies
+\end{itemize}
+
+\subsubsection{Prototype Components}
+
+Table~\ref{tab:prototypes} summarizes the experimental prototypes developed for validation:
+
+\begin{table}[H]
+\centering
+\caption{Experimental prototype specifications}
+\label{tab:prototypes}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Component & Materials & Key Measurements \\
+\midrule
+Micro-chamber & 3D-printed PLA, 4mm diameter & Temperature gradient, heat flux \\
+Flow lattice & Honeycomb structure, 2mm channels & Pressure drop, flow distribution \\
+Solar carapace & 5W flexible PV panel & Power output vs. irradiance \\
+Nitinol actuator & 0.5mm wire spring & Force vs. temperature \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Validation Metrics}
+
+Performance validation focuses on three key metrics:
+\begin{enumerate}
+    \item \textbf{Thermal coupling efficiency:} Ratio of heat delivered to bio-reactor versus heat generated
+    \item \textbf{Pressure-flow characteristics:} Relationship between pressure drop and flow rate in lattice channels
+    \item \textbf{Energy balance:} Net daily energy surplus from multi-modal generation
+\end{enumerate}

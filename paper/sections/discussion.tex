@@ -1,0 +1,84 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Implications for Artificial Life}
+
+The present results provide an initial quantitative foundation for a multi-functional flow lattice architecture supporting partial on-board energy autonomy. Rather than a paradigm shift already realized, the findings indicate a pathway toward extended operational persistence by integrating distributed micro-combustion, passive thermal coupling, and organism-mediated waste conversion.
+
+\subsection{Comparison with Existing Systems}
+
+Table~\ref{tab:comparison} compares our approach with current autonomous systems:
+
+\begin{table}[H]
+\centering
+\caption{Comparison with existing autonomous systems}
+\label{tab:comparison}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Characteristic & Traditional Robot & Bio-Hybrid (Concept) & Indicative Improvement \\
+\midrule
+Energy independence & 4-8 hours & Extended (model) & Potential >\!\!10× \\
+System complexity & High (>1000 parts) & Low (<100 parts) & 10× reduction \\
+Thermal efficiency & <40\% & ~95\% (sim) & \~2.4× \\
+Mass efficiency & 15\% payload & 45\% functional (model) & 3× (projected) \\
+Self-repair capability & None & Limited & Qualitative \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Manufacturing Considerations}
+
+The transition from prototype to production requires addressing:
+
+\subsubsection{Material Selection}
+While prototypes used PLA and PETG, production units require:
+\begin{itemize}
+    \item 316L stainless steel for high-temperature chambers
+    \item Inconel 718 for extreme thermal cycling regions
+    \item Bio-compatible coatings for organism integration
+\end{itemize}
+
+\subsubsection{Additive Manufacturing Challenges}
+\begin{itemize}
+    \item Internal channel surface roughness: Target Ra < 1.6 $\mu$m
+    \item Powder removal from 2mm channels: Ultrasonic cleaning required
+    \item Thermal stress management: Optimized support structures
+\end{itemize}
+
+\subsection{Ecological and Ethical Considerations}
+
+\subsubsection{Environmental Impact}
+The deployment of waste-consuming organisms offers:
+\begin{itemize}
+    \item Decentralized waste processing reducing transportation
+    \item Conversion of plastic waste to useful energy
+    \item Reduction in landfill accumulation
+\end{itemize}
+
+\subsubsection{Ethical Framework}
+Creating autonomous organisms raises questions about:
+\begin{itemize}
+    \item Rights and responsibilities toward self-sustaining artificial life
+    \item Ecological niche competition with biological organisms
+    \item Control mechanisms for population management
+\end{itemize}
+
+\subsection{Limitations and Future Work}
+
+Key limitations of the current computational study:
+\begin{itemize}
+    \item \textbf{Thermal model idealizations:} Explicit diffusion with simplified boundary convection; non-monotonic diameter efficiency indicates geometric sensitivity unresolved by a single discretization.
+    \item \textbf{Energy balance correlations:} Independence assumption optimistic; adverse correlation stress test increases daily deficit probability from 0.6\% to 15\%.
+    \item \textbf{Hydraulic regime mismatch:} Several high-flow cases exceed laminar bounds (Re$>2300$), limiting applicability of Hagen-Poiseuille scaling without correction.
+    \item \textbf{PCM buffering simplicity:} Lumped enthalpy approach underestimates spatial gradients; variance reduction remains \(<11\%$)$ below stretch goals.
+    \item \textbf{Biological integration:} Waste conversion kinetics and long-term bio-reactor stability not yet simulated.
+\end{itemize}
+
+Future research directions:
+\begin{itemize}
+    \item Coupled thermo-fluid CFD with turbulence transition modeling for lattice manifolds.
+    \item Multi-state stochastic energy model including seasonal and diurnal correlation matrices.
+    \item Advanced PCM geometry and cascaded phase transition design for >25\% variance attenuation.
+    \item Experimental validation of micro-chamber heat recirculation at scale with additive metal prototypes \cite{frazier2014metal,ngo2018additive,yap2015review}.
+    \item Adaptive control and distributed scheduling leveraging evolutionary multi-objective optimization \cite{coello2007evolutionary,banzhaf1998genetic} to balance energy, resilience, and actuation latency.
+\end{itemize}

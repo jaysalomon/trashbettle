@@ -1,0 +1,1 @@
+date,sample_id,experiment_type,diameter_mm,spacing_PD,material,heater_power_W,ambient_K,peak_T_K,eff_global_meas,eff_local_meas,eff_global_sim,eff_local_sim,h_fit_Wm2K,notes
