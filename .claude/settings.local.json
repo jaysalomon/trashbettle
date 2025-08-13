@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv:*)",
+      "Bash(pdflatex:*)",
+      "Bash(python:*)",
+      "Bash(dir:*)"
+    ],
+    "deny": []
+  }
+}
