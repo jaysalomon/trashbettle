@@ -53,12 +53,19 @@ simulations/results/*.mp4
 # Keep curated summary & documentation
 !RESULTS_SUMMARY.md
 
-# Manim generated media cache
+# Manim generated media cache (including auto-generated SVGs)
 media/videos/**/partial_movie_files/
 media/images/
 media/Tex/
+media/texts/
 media/.last_rendered_scene
 media/videos/**/*.mp4
+
+# Claude configuration (local only)
+.claude/
+
+# Compiled PDFs (regenerated from LaTeX)
+paper/*.pdf
 
 # Allow selected demonstration video if desired (uncomment to track one)
 # !media/videos/manim_simulations/480p15/PhysicsHeatFieldScene.mp4
