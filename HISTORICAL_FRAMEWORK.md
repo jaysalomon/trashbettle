@@ -1,8 +1,15 @@
 # A Framework for Autonomous Waste-Processing Bio-Hybrid Systems
 
+> **⚠️ HISTORICAL DOCUMENT**  
+> This is an early version of the research framework, preserved for historical context.  
+> **👉 For the current, comprehensive research, see: [PAPER.md](PAPER.md)**  
+> **🏠 For project overview and quick start, see: [README.md](README.md)**
+
+---
+
 **Authors:** Julien Pierre Salomon  
 **Date:** 19 July 2025  
-**Classification:** Technical Research Framework - Version 1.0
+**Classification:** Technical Research Framework - Version 1.0 (Historical)
 
 ## Abstract
 
